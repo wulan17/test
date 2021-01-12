@@ -1,0 +1,34 @@
+name: 'test'
+
+inputs:
+  chat_id:
+    description: 'Telegram Chat Id.'
+    default: ''
+    required: true
+  token:
+    description: 'Telegram Bot Token.'
+    default: ''
+    required: true
+  repo:
+    description: 'Aur Repository name.'
+    default: ''
+    required: true
+  release_repo:
+    description: 'Release Repository name.'
+    default: ''
+    required: true
+  github_key:
+    description: 'Your github token.'
+    default: ''
+    required: true
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.chat_id }}
+    - ${{ inputs.token }}
+    - ${{ inputs.repo }}
+    - ${{ inputs.release_repo }}
+    - ${{ inputs.github_key }}
+  
